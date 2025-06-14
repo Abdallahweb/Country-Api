@@ -2,7 +2,7 @@
         let finalUrl = `https://api.first.org/data/v1/countries/`;
  
         fetch(finalUrl).then((response) => response.json()).then((data) => {
-       for (let i = 0; i < Object.values(data['data']).length; i++) {
+       for (let i = 0; i < Object.values(data['data'].length); i++) {
 
           header.innerHTML += '<option class="option">' +`  ${Object.values(data['data'])[i].country} ` + '</option>'}});
          function getch(e) {
