@@ -7,15 +7,15 @@
           header.innerHTML += '<option class="option">' +`  ${Object.values(data['data'])[i].country} ` + '</option>'}});
          function getch(e) {
             let finalUrls = `https://restcountries.com/v3.1/name/${e}?fullText=true`;
-         var capital = "";
+        /* var capital = "";
+              capital = data[0].name.nativeName;*/
 
             fetch(finalUrls).then((response) => response.json()).then((data) => {
-              capital = data[0].name.nativeName;
              $(".link_p").remove();
               try{
                 country.innerHTML = `
         
-                <h1 class="heading_name">${capital[Object.keys(capital)].common}</h1>
+                <h1 class="heading_name">${data[0].name.common}</h1>
 
                 
                 <div class="container">
