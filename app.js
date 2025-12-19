@@ -11,7 +11,7 @@
 
             fetch(finalUrls).then((response) => response.json()).then((data) => {
               capital = data[0].name.nativeName;
-
+             $(".link_p").remove();
               try{
                 country.innerHTML = `
         
