@@ -2,13 +2,13 @@ const header=document.getElementById("countrySelect");const country=document.get
           <div class="container">
             <img src="${info.flags.svg}" alt="Flag of ${info.name.common}" class="img">
             <div class="buttons_map">
-              <a href="${info.maps.googleMaps}" target="_blank"><button class="btn_maps">Open in Google Maps</button></a>
-              <a href="${info.maps.openStreetMaps}" target="_blank"><button class="btn_maps">Open in Street Maps</button></a>
+              <a href="${info.maps.googleMaps}" target="_blank"><button class="btn_maps"><i class='fas fa-map' style='font-size:14px;color:#fff;padding-right:5px'></i>Open in Google Maps</button></a>
+              <a href="${info.maps.openStreetMaps}" target="_blank"><button class="btn_maps"><i class='fas fa-map-marker-alt' style='font-size:14px;color:#fff;padding-right:5px'></i>Open in Street Maps</button></a>
             </div>
-            <div class="details_info"><img src="./img/language.png"><h3>اللغة الأم:</h3><h3>${languages}</h3></div>
-            <div class="details_info"><img src="./img/currency-.png"><h3>العملة الرسمية:</h3><h3>${currency}</h3></div>
-            <div class="details_info"><img src="./img/capital.png"><h3>العاصمة:</h3><h3>${capital}</h3></div>
-            <div class="details_info"><img src="./img/people.png"><h3>عدد السكان:</h3><h3>${population}</h3></div>
-            <div class="details_info"><img src="./img/location.png"><h3>القارة:</h3><h3>${continent}</h3></div>
+            <div class="details_info"><h3>${languages}</h3><h3>: اللغة الأم</h3><img src="./img/language.png"></div>
+            <div class="details_info"><h3>${currency}</h3><h3>: العملة</h3><img src="./img/currency-.png"></div>
+            <div class="details_info"><h3>${capital}</h3><h3>: العاصمة</h3><img src="./img/capital.png"></div>
+            <div class="details_info"><h3>${population}</h3><h3>: عدد السكان</h3><img src="./img/people.png"></div>
+            <div class="details_info"><h3>${continent}</h3><h3>: القارة</h3><img src="./img/location.png"></div>
           </div>
         `}catch(err){console.error("Error fetching country info:",err);document.querySelector(".link_p").textContent="No Data Found";country.innerHTML=""}})
