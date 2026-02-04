@@ -1,40 +1,14 @@
-
-        let finalUrl = `https://api.first.org/data/v1/countries/`;
- 
-        fetch(finalUrl).then((response) => response.json()).then((data) => {
-       for (let i = 0; i < Object.values(data['data']).length; i++) {
-
-          header.innerHTML += '<option class="option">' +`  ${Object.values(data['data'])[i].country} ` + '</option>'}});
-         function getch(e) {
-            let finalUrls = `https://restcountries.com/v3.1/name/${e}?fullText=true`;
-        /* var capital = "";
-              capital = data[0].name.nativeName;*/
-
-            fetch(finalUrls).then((response) => response.json()).then((data) => {
-             $(".link_p").remove();
-              try{
-                country.innerHTML = `
-        
-                <h1 class="heading_name">${data[0].name.common}</h1>
-
-                
-                <div class="container">
-
-                <img src="${data[0].flags.svg}" class="img">
-                <br>
-  <div class="map_street">
-               <a href="${data[0].maps.googleMaps}" target="_blank"> <button class="btn_maps"><img src ="./img/maps.png" class="img_map">Open in Google Maps</button></a>
-
-               <a href="${data[0].maps.openStreetMaps}" target="_blank"> <button class="btn_street"><img src ="./img/street.png" class="img_street">Open in Open Street Maps</button></a>
-</div>
-                
-              
-
-<div class="details"><img src="./img/language.png" style="width:90px;height:90px"><h3 style="color:#DC7633;text-shadow:2px 2px #444;font-family:Cairo,Noto Kufi Arabic,sans-serif!important">اللغة الأم</h3><h3 style="color:#eee">${Object.values(data[0].languages).toString().split(",").join(",")}</h3></div><div class="details"><img src="./img/currency-.png" style="width:90px;height:90px"><h3 style="color:#DC7633;text-shadow:2px 2px #444;font-family:Cairo,Noto Kufi Arabic,sans-serif!important">العملة الرسمية</h3><h3 style="color:#eee">${data[0].currencies[Object.keys(data[0].currencies)].name}-${Object.keys(data[0].currencies)[0]}</h3></div><div class="details"><img src="./img/capital.png" style="width:90px;height:90px"><h3 style="color:#DC7633;text-shadow:2px 2px #444;font-family:Cairo,Noto Kufi Arabic,sans-serif!important">العاصمة</h3><h3 style="color:#eee">${data[0].capital[0]}</h3></div><div class="details"><img src="./img/people.png" style="width:90px;height:90px"><h3 style="color:#DC7633;text-shadow:2px 2px #444;font-family:Cairo,Noto Kufi Arabic,sans-serif!important">عدد السكان</h3><h3 style="color:#eee">${data[0].population}</h3></div><div class="details"><img src="./img/location.png" style="width:90px;height:90px"><h3 style="color:#DC7633;text-shadow:2px 2px #444;font-family:Cairo,Noto Kufi Arabic,sans-serif!important">القارة</h3><h3 style="color:#eee">${data[0].continents[0]}</h3></div></div>`;
-           }catch (error) {
-                        country.innerHTML ='<h1 class="heading_name">No Data Found</h1>' ;
-
-           }  })
-        }
-    
-
+const header=document.getElementById("countrySelect");const country=document.getElementById("country");fetch("https://api.first.org/data/v1/countries/").then(res=>res.json()).then(data=>{const countries=Object.values(data.data);const fragment=document.createDocumentFragment();countries.forEach(item=>{const option=document.createElement("option");option.textContent=item.country;option.value=item.country;fragment.appendChild(option)});header.appendChild(fragment)}).catch(err=>console.error("Error fetching countries:",err));header.addEventListener("change",async function(){const countryName=this.value;if(!countryName)return;try{const res=await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`);const data=await res.json();const info=data[0];const languages=info.languages?Object.values(info.languages).join(", "):"N/A";const capital=info.capital?info.capital[0]:"N/A";const currencyKey=info.currencies?Object.keys(info.currencies)[0]:null;const currency=currencyKey?`${info.currencies[currencyKey].name} - ${currencyKey}`:"N/A";const continent=info.continents?info.continents[0]:"N/A";const population=info.population?info.population.toLocaleString():"N/A";document.querySelector(".link_p").textContent=info.name.common;country.innerHTML=`
+          <div class="container">
+            <img src="${info.flags.svg}" alt="Flag of ${info.name.common}" class="img">
+            <div class="buttons_map">
+              <a href="${info.maps.googleMaps}" target="_blank"><button class="btn_maps">Open in Google Maps</button></a>
+              <a href="${info.maps.openStreetMaps}" target="_blank"><button class="btn_maps">Open in Street Maps</button></a>
+            </div>
+            <div class="details_info"><img src="./img/language.png"><h3>اللغة الأم:</h3><h3>${languages}</h3></div>
+            <div class="details_info"><img src="./img/currency-.png"><h3>العملة الرسمية:</h3><h3>${currency}</h3></div>
+            <div class="details_info"><img src="./img/capital.png"><h3>العاصمة:</h3><h3>${capital}</h3></div>
+            <div class="details_info"><img src="./img/people.png"><h3>عدد السكان:</h3><h3>${population}</h3></div>
+            <div class="details_info"><img src="./img/location.png"><h3>القارة:</h3><h3>${continent}</h3></div>
+          </div>
+        `}catch(err){console.error("Error fetching country info:",err);document.querySelector(".link_p").textContent="No Data Found";country.innerHTML=""}})
