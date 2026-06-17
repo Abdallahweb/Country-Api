@@ -66,11 +66,8 @@ header.addEventListener("change", async function () {
           <a href="${googleMapLink}" target="_blank"><button class="btn_maps"><i class='fas fa-map-marker-alt' style='font-size:14px;color:#fff;padding-left:5px'></i>Open in Google Maps</button></a>
           <a href="${openStreetLink}" target="_blank"><button class="btn_maps"><i class='fas fa-map' style='font-size:14px;color:#fff;padding-left:5px'></i>Open in Street Maps</button></a>
         </div>
-        <div class="details_info"><img src="./img/language.png" style="width:30px;height:30px"><h3>اللغة : </h3><h3>${languages}</h3></div>
         <div class="details_info"><img src="./img/currency-.png"><h3>العملة : </h3><h3>${currency}</h3></div>
         <div class="details_info"><img src="./img/capital.png"><h3>العاصمة : </h3><h3>${capital}</h3></div>
-        <div class="details_info"><img src="./img/people.png"><h3>عدد السكان : </h3><h3>${population}</h3></div>
-        <div class="details_info"><img src="./img/location.png"><h3>القارة : </h3><h3>${continent}</h3></div>
       </div>
     `;
   } catch (err) {
