@@ -81,13 +81,14 @@ option {
 
 .buttons_map {
   display: flex;
-  justify-content: center;
+flex-direction: column-reverse;
   gap: 10px;
-  margin-bottom: 20px;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .btn_maps {
+      width: 250px;
+font-size: 17px;
   padding: 8px 15px;
   border-radius: 10px;
   border: none;
