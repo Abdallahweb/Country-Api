@@ -63,11 +63,11 @@ header.addEventListener("change", async function () {
       <div class="container">
         <img src="${info.flag || './img/location.png'}" alt="Flag of ${info.name}" class="img" style="max-width:200px; border-radius:8px;">
         <div class="buttons_map">
-          <a href="${googleMapLink}" target="_blank"><button class="btn_maps"><i class='fas fa-map-marker-alt' style='font-size:14px;color:#fff;padding-left:5px'></i>Open in Google Maps</button></a>
-          <a href="${openStreetLink}" target="_blank"><button class="btn_maps"><i class='fas fa-map' style='font-size:14px;color:#fff;padding-left:5px'></i>Open in Street Maps</button></a>
+          <a href="${googleMapLink}" target="_blank"><button class="btn_maps"><i class='fas fa-map-marker-alt' style='font-size:14px;color:#99240B;padding-right:10px'></i>Open in Google Maps</button></a>
+          <a href="${openStreetLink}" target="_blank"><button class="btn_maps"><i class='fas fa-map' style='font-size:14px;color:#0B5999;padding-right:10px'></i>Open in Street Maps</button></a>
         </div>
-        <div class="details_info"><img src="./img/currency-.png"><h3>العملة : </h3><h3>${currency}</h3></div>
-        <div class="details_info"><img src="./img/capital.png"><h3>العاصمة : </h3><h3>${capital}</h3></div>
+        <div class="details_info"><img src="./img/currency.png" class="currency"><h3>Currency : </h3><h3>${currency}</h3></div>
+        <div class="details_info"><img src="./img/capital.png"  class="capital"><h3>Capital : </h3><h3>${capital}</h3></div>
       </div>
     `;
   } catch (err) {
