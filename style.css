@@ -87,8 +87,9 @@ flex-direction: column-reverse;
 }
 
 .btn_maps {
-      width: 250px;
+    width: 250px;
 font-size: 17px;
+margin-bottom: 5px;
   padding: 8px 15px;
   border-radius: 10px;
   border: none;
