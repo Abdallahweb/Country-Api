@@ -7,7 +7,7 @@
 body {
   font-family: 'Cairo', 'Noto Kufi Arabic', sans-serif;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom ,#000000ee, rgba(0, 0, 0, 0.24) 70% , transparent, #000000ee), url(./img/back.jpg);
+  background-image: url(./img/back.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
